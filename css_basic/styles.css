@@ -2,7 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Yeseva+One);
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700italic,400italic);
 
-
 /* CSS reset rules */
 html, body {
 	height: 100%;
@@ -50,11 +49,13 @@ table {
 	border-spacing: 0;
 }
 
+/* --- CUSTOM STYLING STARTS HERE --- */
 
 /* Fonts and colors */
 body {
 	font-family: 'Josefin Sans', serif;
-	color: rgba(0, 0, 0, 0.8);
+	color: #333; /* Darker gray for better readability */
+    background-color: #f4f4f9; /* Light gray background for the whole page */
     
     /* Flexbox Layout: Column direction to stack Header, Main, Footer */
     display: flex;
@@ -63,76 +64,153 @@ body {
 
 h1, h2, h3, h4, h5, h6, header {
 	font-family: 'Yeseva One', sans-serif;
+    
+
+}
+
+h1 {
+    color: #2c3e50; /* Midnight Blue */
+    text-align: center;
+}
+
+h2 {
+    color: #16a085; /* Green Sea */
+    border-bottom: 2px solid #16a085;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 5px;
+}
+#about {
+    text-align: center;
+}
+
+h3 {
+    color: #2980b9; /* Belize Blue */
+    text-align: center;
 }
 
 /* Main container: Row direction for Article and Aside */
 main {
     display: flex;
     flex-direction: row;
-    flex: 1; /* Changed from 'auto' to '1' to correctly fill remaining space */
-    min-height: 0; /* Critical for nested scrollbars to work */
+    flex: 1; 
+    min-height: 0;
 }
 
 article {
-    flex: 2; /* Takes 2/3 of width */
-    overflow-y: auto; /* Enables internal scrolling */
-    padding: 50px 15px;
+    flex: 2; 
+    overflow-y: auto; 
+    padding: 50px 30px; /* Increased horizontal padding */
+    background-color: #ffffff; /* White paper look */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Soft shadow */
 }
 
 aside {
-	background: #FAFAFA;
-    flex: 1; /* Takes 1/3 of width */
-    overflow-y: auto; /* Enables internal scrolling */
+	background: #e8ecef; /* Slightly darker than body for contrast */
+    flex: 1; 
+    overflow-y: auto; 
     padding: 50px 15px;
+    border-left: 1px solid #dcdcdc;
 }
 
 header {
-	border-bottom: 1px solid rgb(221,221,221);
+	background-color: #2c3e50; /* Dark background for header */
+	border-bottom: 4px solid #16a085; /* Teal accent border */
 	transition: border-bottom-color 1s ease;
-    padding: 20px 0;
-    /* CHANGED: Removed fixed height: 80px to allow content to fit */
+    padding: 15px 0;
 	height: auto; 
+    text-align: center;
     min-height: 80px;
-    flex-shrink: 0; /* Prevents header from shrinking when content is large */
+    flex-shrink: 0; 
 }
 
+/* Navigation Links styling */
 header a {
-	color: rgba(0, 0, 0, 0.8);
+	color: #ecf0f1; /* Light text */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #1abc9c; /* Bright teal on hover */
+}
+
+/* Logo styling */
+header li.logo {
+	font-size: 36px;
+    color: #f1c40f; /* Golden yellow for the logo */
+    margin-right: 20px;
+    vertical-align: middle;
 }
 
 aside p {
-	border: 1px solid #bbb;
-	background: #ddd;
-	color: black;
-    border-radius: 10px;
+	border: 1px solid #bdc3c7;
+	background: #fff;
+	color: #7f8c8d;
+    border-radius: 5px;
 	padding: 20px 20px;
+    font-style: italic;
 }
 
 footer {
-    padding: 5px 15px;
-    /* CHANGED: Removed fixed height: 80px */
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px 15px;
 	height: auto;
     min-height: 60px;
     flex-shrink: 0;
     display: flex;
-    align-items: center; /* Vertically centers text */
+    align-items: center; 
+    justify-content: center; /* Center footer text */
 }
 
 footer a {
-	color: rgba(0, 0, 0, 0.8);
+	color: #1abc9c;
+    font-weight: bold;
 }
 
+/* General Link Styling */
 a {
-	color: #F80002;
+	color: #2980b9;
     text-decoration: none;
 }
+a:hover {
+    text-decoration: underline;
+}
 
+/* Table Styling */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+th {
+    background-color: #16a085;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
 
 /* Positioning and margins */
 @media (min-width: 1100px) {
 	body {
 		width: 1100px;
 		margin: 0 auto;
+		box-shadow: 0 0 20px rgba(0,0,0,0.1); /* Shadow for the main page container */
 	}
 }
 
@@ -145,42 +223,42 @@ header .right {
 	margin: 0 10px 15px;
 }
 
-
 /* Header List Styles */
 header ul {
 	list-style: none;
-	margin: 10px 0 0 0;
-	padding: 0;
+	margin: 0;
+	padding: 0 20px; /* Add side padding to align with content */
+    display: flex;
+    align-items: center;
 }
 header li {
-	display: inline-block; /* Changed to inline-block for better spacing */
+	display: inline-block; 
 	vertical-align: middle;
 }
 header li:first-child {
 	margin: 0;
 }
 header li a {
-	margin: 0 10px;
+	margin: 0 15px;
 }
-header li.logo {
-	font-size: 36px;
-}
-
 
 /* Text styles and margins */
 p {
 	margin-bottom: 15px;
+    line-height: 1.6; /* Better readability */
+    text-align: center;
 }
 h1 {
 	font-size: 36px;
-	margin: 20px 0; /* Reduced top margin */
+	margin: 20px 0; 
+    
 }
 h2 {
 	font-size: 32px;
 	margin: 30px 0 15px;
 }
 h3 {
-	font-size: 28px;
+	font-size: 24px;
 	margin: 25px 0 10px;
 }
 h4 {
@@ -198,6 +276,7 @@ h6 {
 	margin: 5px 0;
 }
 
+/* Responsive Design */
 @media (max-width: 800px) {
   body.works_on_smartphone {
   	display: block;
@@ -207,5 +286,8 @@ h6 {
   }
   header .right {
   	float: none;
+  }
+  header ul {
+      justify-content: center;
   }
 }
