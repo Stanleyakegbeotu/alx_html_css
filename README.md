@@ -89,7 +89,7 @@ How to Run
 
 Clone this repository:
 
-git clone https://github.com/your-username/smileschool-clone.git
+git clone https://github.com/Stanleyakegbeotu/alx_html_css.git
 
 
 Open index.html in your browser.
