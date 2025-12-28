@@ -1,599 +1,473 @@
-
-/* --- 1. HEADER CONTAINER --- */
-header {
-    /* WHY: Limits the header content width and centers it */
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    
-    /* WHY: Enables Logo-Left, Nav-Right split */
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; /* Vertically centers the logo and nav */
-    
-    /* Positioning over the Hero image */
-    position: absolute; /* Allows header to sit on top of the hero image */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10; /* Ensures it's above other elements */
-}
-
-/* --- 2. LOGO --- */
-.header-logo-link img {
-    /* Adjust size for visual balance */
-    width: 50px; 
-    height: auto;
-    /* Optional: If the logo image is dark, invert it to white on the dark background */
-    /* filter: invert(1); */
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* --- 3. NAVIGATION LINKS (.header-nav) --- */
-.header-nav {
-    /* WHY: Keeps the links horizontally grouped */
-    display: flex;
-    align-items: center; 
-}
-
-.header-nav a {
-    /* Style for the text links (COURSES, PRICING, LOGIN) */
-    margin-left: 30px; /* Spacing between the links */
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white; /* White text on the dark background */
-    transition: opacity 0.2s;
-}
-
-.header-nav a:hover {
-    opacity: 0.8;
-}
-
-/* --- 4. MOBILE ADJUSTMENT --- */
-/* For very small screens, stack the logo and navigation vertically if needed */
-@media (max-width: 500px) {
-    header {
-        flex-direction: column;
-        gap: 15px; /* Space between logo and stacked links */
-    }
-    
-    .header-nav {
-        /* Optional: Spread links out slightly more when stacked */
-        gap: 15px;
-    }
-    
-    .header-nav a {
-        /* Remove excess left margin when stacked */
-        margin-left: 0; 
-    }
-}
-
-    /* --- GLOBAL RESET --- */
-body {
+/* ===== GLOBAL RESET ===== */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif; /* Sets a clean, standard font */
-    box-sizing: border-box; /* Ensures padding doesn't increase element width */
+    box-sizing: border-box;
 }
 
-/* --- HERO / FEATURES SECTION --- */
-#features {
-    /* WHY: We use a linear-gradient over the image to darken it. 
-       This ensures the white text remains readable on top of the photo. */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://img.freepik.com/premium-photo/2d-vector-illustration-remote-team-collaborating-software-dev-project-with-video-conferencing_980716-257612.jpg?semt=ais_hybrid&w=740&q=80');
-    background-size: cover; /* Ensures the image covers the whole area */
-    background-position: center;
-    color: white; /* All text inside this section becomes white */
-    text-align: center; /* Centers all text and buttons */
-    padding: 80px 20px; /* Adds breathing room top/bottom and left/right */
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Styling the "Intro Block" (The first div inside #features) */
-#features > div:first-child h2 {
-    font-size: 4rem; /* Makes the main title very large */
-    margin-bottom: 10px;
-    font-weight: bold;
+/* ===== HEADER / NAVBAR ===== */
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
 }
 
-#features > div:first-child button {
-    /* WHY: Matching the button design */
-    background-color: #631d8f; /* Bright purple */
-    color: white;
-    border: double 3px white;
-    padding: 15px 30px;
-    border-radius: 30px; /* Makes the button pill-shaped */
-    font-weight: bold;
-    text-transform: uppercase; /* Forces text to CAPS like the design */
-    cursor: pointer; /* Shows a hand icon on hover */
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(217, 210, 222, 0.5); /* Adds a glowing shadow */
-}
-
-/* --- THE GRID (The row of people) --- */
-.feature-grid {
-    /* WHY: Flexbox is the best way to put items side-by-side */
+nav {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 20px;
     display: flex;
-    justify-content: center; /* Centers the group of items */
-    gap: 40px; /* Adds space between each person */
-    margin-top: 80px; /* Pushes the grid down from the top section */
-    flex-wrap: wrap; /* Allows items to move to the next line on small screens */
-}
-
-.feature-item {
-    max-width: 200px; /* Limits the width of each profile card */
-    text-align: center;
-}
-
-/* MAKING THE IMAGES CIRCULAR */
-.feature-item img {
-    width: 150px;       /* Fixed width */
-    height: 150px;      /* Fixed height */
-    object-fit: cover;  /* Prevents the image from stretching/squashing */
-    border-radius: 50%; /* WHY: 50% radius turns a square image into a perfect circle */
-    border: 4px solid rgba(255,255,255,0.2); /* Adds a subtle border ring */
-}
-
-.feature-item h4 {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.feature-item p {
-    font-size: 0.9rem;
-    font-style: italic; /* Matches the style of the quotes under names */
-    opacity: 0.8; /* Makes the text slightly transparent */
-}
-
-/* --- REFINED QUOTE SECTION --- */
-
-#testimonial-quote {
-    background-color: #8616dd;
-    padding: 80px 20px; /* Increased padding for more vertical space */
-    color: white;
-}
-
-.quote-container {
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    max-width: 900px;
-    margin: 0 auto; 
-    gap: 40px; 
-}
-
-/* Ensure the image doesn't get squeezed and remains a circle */
-.quote-author-image {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0; /* WHY: Prevents the image from shrinking on smaller screens */
-}
-
-.quote-content {
-    text-align: left;
-    max-width: 600px;
-    /* WHY: The text now takes up the remaining space efficiently */
-    flex-grow: 1; 
-}
-
-.quote-content blockquote {
-    /* WHY: Browsers add huge default margins to <blockquote>, so we reset them. */
-    margin: 0; 
-    padding: 0;
-    font-size: 1.5rem; 
-    font-weight: 300; /* Use a lighter weight for a clean look */
-    line-height: 1.5; 
-}
-
-.quote-author {
-    /* Corresponds to "Person Name" in the design */
-    display: block; 
-    font-weight: bold;
-    font-style: normal;
-    font-size: 1.2rem; 
-    margin-top: 20px; /* Space between quote and name */
-}
-
-.quote-context {
-    /* Corresponds to "weather presenter" in the design */
-    font-size: 1rem;
-    font-weight: normal;
-    font-style: italic; 
-    /* WHY: We want the title right under the name, so we remove margin */
-    margin: 0; 
-    opacity: 0.8; 
-}
-
-/* --- RESPONSIVE ADJUSTMENT for Quote Section --- */
-@media (max-width: 768px) {
-    .quote-container {
-        /* Stack the image and text vertically on smaller screens */
-        flex-direction: column;
-        text-align: center; /* Center the text when stacked */
-    }
-    .quote-content {
-        text-align: center; /* Ensure blockquote and cite are centered */
-    }
-}
-
-/* --- VIDEO TUTORIALS SECTION --- */
-
-#video-content {
-    padding: 60px 0; 
-    text-align: center; /* WHY: Centers the main heading */
-    background-color: #FFFFFF; /* White background */
-}
-
-#video-content h2 {
-    font-size: 2rem;
-    margin-bottom: 50px;
-    font-weight: 300; 
-    color: black;
-}
-
-/* Styling the highlighted word 'popular' */
-#video-content h2 .highlight { 
-    /* WHY: Targets the word wrapped in <span> to apply the brand color */
-    color: #C271FF; 
-    font-weight: bold;
-}
-
-/* --- NEW STYLES FOR VIDEO METADATA --- */
-
-/* Style the Author Block: Small image next to name */
-.video-author {
-    display: flex; /* WHY: Aligns image and name horizontally */
-    align-items: center;
-    margin-top: 10px;
-}
-
-.video-author .author-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; /* WHY: Makes the author picture circular */
-    margin-right: 8px;
-    object-fit: cover;
-    text-align: center;
-}
-
-.video-author .author-name {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-}
-
-/* Style the Rating and Duration Bar */
-.video-meta {
-    display: flex; /* WHY: Aligns the rating (left) and duration (right) horizontally */
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px;
 }
 
-.video-meta .star-rating img {
-    width: 15px; 
-    height: 15px;
-    margin-right: 2px;
-    
-    /* WHY: This is the fix! It ensures the image aligns perfectly with the middle 
-       of the surrounding text or block, resolving the small vertical offset. */
-    vertical-align: middle; 
-    
-    /* Ensures stars are never compressed by tight spaces */
-    flex-shrink: 0; 
+nav img {
+    width: 150px;
 }
 
-/* Style the Rating and Duration Bar */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
 
- .video-meta.video-duration {
-    color: #C271FF; /* WHY: Sets the duration text to the brand purple */
-    font-size: 0.9rem;
+nav ul a {
+    text-decoration: none;
+    color: #fff;
     font-weight: bold;
+    font-size: 14px;
 }
 
-#call-to-action-blocks {
-    /* WHY: Using the dark blue/black color from the header/hero section */
-    background-color: #071629; 
-    color: white;
+/* ===== HERO SECTION ===== */
+main section:first-of-type {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+    ),
+    url("Object.png") center/cover no-repeat;
+    color: #fff;
     text-align: center;
-    padding: 80px 20px;
+    padding: 180px 20px 80px;
 }
 
-#call-to-action-blocks h2 {
-    font-size: 2rem;
-    margin-bottom: 50px;
-}
-
-/* --- CTA GRID LAYOUT (4 Columns) --- */
-.cta-grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 30px; 
-    max-width: 1000px;
-    /* WHY: Centers the grid and adds spacing below it for the button */
-    margin: 0 auto 50px auto; 
-}
-
-.cta-item {
-    text-align: center;
-}
-
-.cta-item img {
-    /* WHY: Sets the size for the large, centered smiley icons */
-    width: 100px; 
-    height: 100px;
-    margin-bottom: 15px;
-}
-
-.cta-item h4 {
-    font-size: 1.2rem;
+/* Hero Title */
+main section:first-of-type h1 {
+    font-size: 80px;
+    font-weight: 800;
     margin-bottom: 10px;
 }
 
-.cta-item p {
-    font-size: 0.9rem;
-    /* WHY: Uses slightly transparent white for body text to look softer */
-    color: rgba(255, 255, 255, 0.7);
+/* SMILES / GRIN / LAUGH */
+main section:first-of-type span {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-/* --- SINGLE REGISTER BUTTON (Below the Grid) --- */
-/* The design shows one large button centered below the 4 blocks.
-   You will need to place a single <button class="membership-register-btn"> 
-   *after* the .cta-grid-container in your HTML. */
-
-.membership-register-btn {
-    /* WHY: Reusing the look of the main CTA button (pill shape, purple background) */
-    background-color: #C271FF;
-    color: white;
-    border: none;
+/* Register Button */
+main section:first-of-type button {
+    display: block;
+    margin: 30px auto;
     padding: 15px 30px;
-    border-radius: 30px; 
+    background: #c271ff;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
     font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(194, 113, 255, 0.5); 
-    margin-top: 30px;
 }
 
-/* --- BASE MOBILE STYLES (Screen Width: < 768px) --- */
-.video-grid-container {
-    display: grid;
-    /* WHY: Mobile-First: Sets the default to 1 single column for phones */
-    grid-template-columns: repeat(1, 1fr); 
-    gap: 30px; 
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* ===== LEARN FROM THE PROS ===== */
+main section:first-of-type h2 {
+    margin: 80px 0 40px;
+    color: #c271ff;
+    font-size: 28px;
 }
 
-/* --- TABLET OVERRIDE (Screen Width: >= 576px) --- */
-@media (min-width: 576px) {
-    .video-grid-container {
-        /* WHY: At 576px and wider, we switch to a 2-column layout */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* --- DESKTOP OVERRIDE (Screen Width: >= 992px) --- */
-@media (min-width: 992px) {
-    .video-grid-container {
-        /* WHY: At 992px and wider, we use the full 4-column layout */
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* --- BASE MOBILE/TABLET STYLES (Screen Width: < 992px) --- */
-.cta-grid-container {
-    /* WHY: Mobile-First: Starts with a 1-column layout for phones */
-    grid-template-columns: 1fr; 
-    gap: 30px; 
-    max-width: 1000px;
-    margin: 0 auto 50px auto; 
-    padding: 0 20px;
-}
-
-/* --- TABLET & DESKTOP OVERRIDES --- */
-@media (min-width: 576px) {
-    .cta-grid-container {
-        /* Switch to 2 columns on tablets */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (min-width: 992px) {
-    .cta-grid-container {
-        /* WHY: At 992px and wider, we override to the full 4 columns */
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* --- BUTTON WRAPPER CENTERING --- */
-.button-wrapper {
-    /* WHY: Flexbox is the most reliable way to center content in a container. */
+/* Instructors container */
+main section:first-of-type > div:last-child > div {
     display: flex;
-    
-    /* WHY: Centers the content (the button) horizontally within the wrapper. */
     justify-content: center;
-    
-    /* Adds the desired space above the button. */
-    margin-top: 30px; 
-    margin-bottom: 30px; /* Adds bottom space if needed */
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-/* --- REVERTING THE BUTTON STYLE --- */
-.membership-register-btn {
-    /* WHY: Resetting the button to its standard inline-block behavior 
-       ensures it doesn't break the layout when inside the flex container. */
-    display: inline-block; 
-    
-    /* Ensure no margins are pushing it left/right */
-    margin: 0; 
-    
-    /* ... keep all other existing background, padding, border-radius styles ... */
-}
-
-/* --- FAQ SECTION BASE STYLES --- */
-#faq-section {
-    background-color: white;
-    padding: 60px 20px;
+/* Instructor cards */
+main section:first-of-type > div:last-child > div > div {
     text-align: center;
+    max-width: 150px;
 }
 
-#faq-section h2 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    margin-bottom: 50px;
-    color: black;
+main section:first-of-type img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
 }
 
-/* --- FAQ GRID CONTAINER (Mobile-First) --- */
-.faq-grid-container {
-    /* WHY: CSS Grid will handle the column layout */
-    display: grid;
-    /* WHY: Mobile-First: Defaults to 1 column for phones */
-    grid-template-columns: 1fr; 
-    gap: 40px 80px; /* Vertical (40px) and Horizontal (80px) gap */
+main section:first-of-type h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+main section:first-of-type p {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+main section:nth-of-type(2) {
+    background: #c271ff;
+    padding: 80px 20px;
+    color: #fff;
+}
+
+/* Container */
+main section:nth-of-type(2) > div {
     max-width: 1000px;
-    margin: 0 auto; /* Center the grid container */
-    text-align: left; /* Reset text alignment for content inside */
-}
-
-/* --- FAQ ITEM STYLING --- */
-.faq-item h3 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: black;
-}
-
-.faq-item p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #666;
-}
-
-/* ⚠️ NOTE: We are ignoring the .faq-row class in the CSS and applying the grid directly 
-   to the .faq-grid-container for a cleaner layout using the items directly. 
-   You can delete the two redundant <div class="faq-row"> wrappers if you wish. */
-
-/* --- DESKTOP OVERRIDE (Two Columns) --- */
-@media (min-width: 768px) {
-    .faq-grid-container {
-        /* WHY: At 768px and wider, switches to two equal columns */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* --- FOOTER STYLING --- */
-footer {
-    background-color: #071629; 
-    color: white;
-    padding: 40px 0 20px 0; /* Reduced bottom padding */
-    text-align: center; /* WHY: Centers the copyright text by default */
-}
-
-.footer-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- The Main Row (Logo Left, Social Right) --- */
-.footer-row {
-    display: flex;
-    justify-content: space-between; /* Pushes content to the edges */
-    align-items: center; 
-    padding-bottom: 30px; /* Space above the copyright line */
-}
-
-.footer-logo {
+    margin: auto;
     display: flex;
     align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* ensures mobile-friendly stacking */
 }
 
-.footer-logo-img {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    /* You may need to invert the image color if it's black */
-    /* filter: invert(1); */
+/* Testimonial Image */
+main section:nth-of-type(2) img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.logo-text {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-
-/* --- Social Icons --- */
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-links img {
-    width: 20px;
-    height: 20px;
-    opacity: 0.8;
-    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.social-links a:hover img {
-    opacity: 1; /* Make icon fully visible on hover */
-}
-
-
-
-/* --- The Copyright Text (Centered Below) --- */
-.copyright-text {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6); 
-    margin: 20px 0; /* Adds space above and below, and centers L/R */
-}
-
-/* --- MOBILE ADJUSTMENTS (Ensures everything stacks nicely) --- */
-@media (max-width: 600px) {
-    .footer-row {
-        /* Stack the logo block and the social block vertically */
-        flex-direction: column; 
-        gap: 20px;
-        text-align: center;
-    }
-    
-    /* Center the social links block if it becomes a separate line */
-    .social-links {
-        justify-content: center;
-    }
-}
-
-
-
-#hero-banner h1 {
-    font-size: 4rem;
-    font-weight: bold;
+/* Quote text container */
+main section:nth-of-type(2) blockquote {
+    font-size: 22px;
+    line-height: 1.5;
     margin-bottom: 20px;
 }
 
-#hero-banner p {
-    font-size: 1.5rem;
+/* Person name */
+main section:nth-of-type(2) h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Person title */
+main section:nth-of-type(2) p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Make sure name/title are stacked under the quote */
+main section:nth-of-type(2) div > blockquote + h3,
+main section:nth-of-type(2) div > h3 + p {
+    display: block;
+}
+
+/* ===== MOST POPULAR TUTORIALS ===== */
+main section:nth-of-type(3) {
+    background: #fff;
+    padding: 80px 20px;
+}
+
+/* Section title */
+main section:nth-of-type(3) > h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 60px;
+}
+
+main section:nth-of-type(3) > h2 span {
+    color: #c271ff;
+}
+
+/* Cards container — ONLY the divs containing cards */
+main section:nth-of-type(3) .cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Individual card */
+main section:nth-of-type(3) .cards-wrapper > div {
+    background: #fff;
+    width: 100%;
+    max-width: 250px;
+    text-align: left;
+}
+
+/* Thumbnail */
+main section:nth-of-type(3) .cards-wrapper > div > img:first-child {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Card title */
+main section:nth-of-type(3) h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+/* Description */
+main section:nth-of-type(3) .cards-wrapper > div > p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Author row */
+main section:nth-of-type(3) .cards-wrapper > div > div:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+main section:nth-of-type(3) .cards-wrapper > div > div:first-of-type img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+main section:nth-of-type(3) h4 {
+    font-size: 14px;
+    color: #c271ff;
+}
+
+/* Stars row */
+main section:nth-of-type(3) .cards-wrapper > div > div:nth-of-type(2) {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+main section:nth-of-type(3) i {
+    color: #c271ff;
+    font-size: 12px;
+}
+
+/* Duration */
+main section:nth-of-type(3) .cards-wrapper > div > p:last-child {
+    font-size: 12px;
+    color: #c271ff;
+    text-align: right;
+}
+
+
+/* ===== FREE MEMBERSHIP ===== */
+main section:nth-of-type(4) {
+    background: #071629;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Section title */
+main section:nth-of-type(4) h2 {
+    font-size: 28px;
+    margin-bottom: 60px;
+}
+
+main section:nth-of-type(4) h2 span {
+    color: #c271ff;
+}
+
+/* Membership items */
+main section:nth-of-type(4) > div {
+    display: inline-block;
+    width: 220px;
+    margin: 0 20px 40px;
+    vertical-align: top;
+}
+
+/* Icon */
+main section:nth-of-type(4) img {
+    width: 40px;
+    margin-bottom: 20px;
+}
+
+/* Item title */
+main section:nth-of-type(4) h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Item text */
+main section:nth-of-type(4) p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Button */
+main section:nth-of-type(4) button {
+    display: block;
+    margin: 40px auto 0;
+    padding: 15px 30px;
+    background: #c271ff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===== FAQ SECTION ===== */
+main section:nth-of-type(5) {
+    background: #fff;
+    padding: 80px 20px;
+}
+
+/* FAQ title */
+main section:nth-of-type(5) > h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 80px;
+}
+
+/* Columns wrapper */
+main section:nth-of-type(5) > div {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    gap: 80px;
+}
+
+/* Each column */
+main section:nth-of-type(5) > div > div {
+    width: 50%;
+}
+
+/* Question */
+main section:nth-of-type(5) h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Answer */
+main section:nth-of-type(5) div div div:nth-of-type(even) {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #071629;
+    padding: 40px 20px 20px;
+    color: #fff;
+}
+
+/* Footer main container */
+footer section {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Top row */
+footer section > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 30px;
 }
 
-#hero-banner button {       
-    background-color: #C271FF;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(26, 25, 26, 0.5);
+/* Logo */
+footer img {
+    width: 150px;
 }
 
-   
+/* Social icons */
+footer i {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Copyright */
+footer p {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+/* Cards wrapper - grid */
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-items: center;
+    margin-top: 40px;
+}
+
+/* Individual card */
+.cards-wrapper > div {
+    background: #fff;
+    max-width: 250px;
+    text-align: left;
+}
+
+/* Thumbnail */
+.cards-wrapper > div > img:first-child {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Card title */
+.cards-wrapper h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+/* Description */
+.cards-wrapper > div > p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Author row */
+.cards-wrapper > div > div:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cards-wrapper > div > div:first-of-type img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.cards-wrapper h4 {
+    font-size: 14px;
+    color: #c271ff;
+}
+
+/* Stars row */
+.cards-wrapper > div > div:nth-of-type(2) {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.cards-wrapper i {
+    color: #c271ff;
+    font-size: 12px;
+}
+
+/* Duration */
+.cards-wrapper > div > p:last-child {
+    font-size: 12px;
+    color: #c271ff;
+    text-align: right;
+}
