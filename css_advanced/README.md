@@ -1,69 +1,119 @@
+SmileSchool Landing Page 
+Project Overview
 
-# 🚀 SmileSchool Landing Page
+This project is a responsive front-end clone of the SmileSchool landing page, created as part of an HTML/CSS assignment. The website replicates the layout, typography, and styling of the reference design provided by the instructor.
 
-A fully responsive, mobile-first landing page built to showcase modern web design and front-end development skills. This project replicates a professional, high-fidelity design, focusing on CSS Grid, Flexbox, and semantic HTML structure.
+The project demonstrates the ability to:
 
-## ✨ Features
+Build a structured HTML page with semantic elements.
 
-This project implements a detailed multi-section layout, including:
+Apply CSS styling for a responsive, visually appealing layout.
 
-  * **Header & Hero Banner:** High-contrast header positioned over a dark-overlay background image to emphasize the main call-to-action.
-  * **Best Performers Section:** A **4-column grid** layout showcasing circular profile images, designed to be fully responsive.
-  * **Quote Testimonial:** A distinctive, large block quote to highlight customer feedback.
-  * **Popular Tutorials:** A responsive card-based layout using **CSS Grid** to display video thumbnails, titles, ratings, and duration.
-  * **Membership CTA:** A dark, high-impact Call-to-Action section with a large, centrally aligned registration button.
-  * **FAQ Section:** A clean, two-column layout optimized for easy readability.
-  * **Footer:** A dark, professional footer with logo, social media links, and a centrally aligned copyright notice.
-  * **Mobile-First Design:** Implemented using CSS Media Queries to ensure a flawless experience on all devices, defaulting to single or dual-column layouts on mobile.
+Use grid and flexbox for modern layout techniques.
 
-## 💻 Technologies Used
+Implement navigation, hero section, cards, testimonial, membership, FAQ, and footer sections with proper alignment and spacing.
 
-  * **HTML5:** For semantic document structure.
-  * **CSS3:** For styling, leveraging modern techniques:
-      * **Flexbox** for alignment (e.g., Header, Footer, Video Meta).
-      * **CSS Grid** for complex multi-column layouts (e.g., Video Grid, Membership Blocks, FAQ).
-      * **Media Queries** for a mobile-first approach.
-      * **`text-shadow`** for legibility on the Hero Banner.
+Features
 
-## ⚙️ Project Structure
+Header & Navigation
 
-The project primarily relies on two files:
+Logo on the left, navigation links on the right.
 
-```
-.
-├── index.html       # Contains all the semantic HTML structure
-├── style.css        # Contains all CSS styling and Media Queries
-├── images/          # Directory for all image assets (thumbnails, icons, logos)
+Responsive and fixed at the top.
+
+Hero Section
+
+Full-width background with overlay.
+
+Bold “Get Schooled” heading.
+
+CTA button “REGISTER FOR FREE”.
+
+Highlights “SMILES”, “GRIN”, “LAUGH”.
+
+Learn From the Pros
+
+Instructors displayed in a horizontal row.
+
+Circular avatars with name and accolades.
+
+Testimonial Section
+
+Highlighted quote with avatar.
+
+Name and role displayed beneath testimonial.
+
+Most Popular Tutorials
+
+4 tutorial cards arranged in a 4-column grid.
+
+Each card includes thumbnail, title, description, author, star rating, and duration.
+
+Free Membership Section
+
+Features 4 benefits/icons.
+
+CTA button for free registration.
+
+Dark-themed background with visually distinct icons.
+
+FAQ Section
+
+Two-column layout for questions and answers.
+
+Clean typography for readability.
+
+Footer
+
+Logo, social media icons, and copyright.
+
+Technologies Used
+
+HTML5
+
+CSS3
+
+Font Awesome for icons
+
+Project Structure
+/project-root
+├── index.html
+├── style.css
+├── images/
+│   ├── background.png
+│   ├── instructor1.png
+│   └── ...
 └── README.md
-```
 
-## 🔗 Live Demo & Deployment
+How to Run
 
-| Platform | Status | URL |
-| :--- | :--- | :--- |
-| **Live Site** | [Deployed] | [INSERT\_YOUR\_DEMO\_URL\_HERE] |
-| **GitHub** | [Active] | [INSERT\_YOUR\_GITHUB\_REPO\_URL\_HERE] |
+Clone this repository:
 
-## 🚀 Getting Started
+git clone https://github.com/Stanleyakegbeotu/alx_html_css.git
 
-To get a local copy up and running, follow these simple steps.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [INSERT_YOUR_GITHUB_REPO_URL_HERE]
-    ```
-2.  **Navigate to the project directory:**
-    ```bash
-    cd SmileSchool-Landing-Page
-    ```
-3.  **Open `index.html`** in your web browser.
+Open index.html in your browser.
 
-## 🤝 Contact
+Ensure the images folder is in the correct path.
 
-**[Stanley Akegbeotu]** – [Stanleyakegbeotu@gmail.com]
+Screenshots
 
-**Project Link:** [INSERT\_YOUR\_GITHUB\_REPO\_URL\_HERE]
+Add screenshots of your rendered website here, e.g.:
 
------
+Hero Section
 
-*Built with passion for clean code and responsive design.*
+Most Popular Tutorials
+
+Testimonial Section
+
+Author
+
+Name: Stanley Akegbeotu
+
+Email: stanleyakegbeotu@gmail.com
+
+LinkedIn: linkedin.com/in/stanley-akegbeotu-795675384
+
+License
+
+This project is for educational purposes as part of the ALX HTML/CSS curriculum.
